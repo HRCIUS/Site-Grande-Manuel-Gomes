@@ -17,6 +17,8 @@
 
 </head>
 <body>
+  <audio id="audio" src="/mp3/azul.mp3" loop>
+  </audio>
 <div class="container-fluid bg-includes">
 <nav class="navbar navbar-expand-lg">
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -26,6 +28,9 @@
       </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="/obras">Obras Artísticas</a>
+      </li>
+      <li class="nav-item ms-4">
+        <a class="nav-link text-white" id="audiobutton" href="#">Ouvir Agora</a>
       </li>
     </ul>  
   </div>
@@ -49,5 +54,13 @@
       </div>
     </footer>
 </div>
+<script>
+  var button = document.getElementById("audiobutton");
+  button.addEventListener("click", function(e){
+    e.preventDefault();
+    var audio = document.getElementById("audio");
+    audio.play();
+});
+</script>
 </body>
 </html>
