@@ -15,11 +15,10 @@ class ObraController extends Controller
         return view("obras", ["obras" => $obras]);
     }
     public function letra($id){
-        $letra = Obra::all();
-        $id = $id - 1;
-        $letter = explode("\n", $letra[$id] -> letra);
-        if(count($letra) > 0){
-            return view('letra', ['letra' => $letra[$id], "musga" => $letter]);
+        $musga = Obra::findOrFail($id);
+        $letra = explode("\n", $musga -> letra);
+        if($musga){
+            return view('letra', ['letra' => $letra, "musga" => $musga]);
         }
     }
 }
